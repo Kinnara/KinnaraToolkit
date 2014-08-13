@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Kinnara.Toolkit.Shared", "Kinnara.Toolkit\Kinnara.Toolkit.Shared\Kinnara.Toolkit.Shared.shproj", "{FA46C21F-A323-4C23-871F-BC8212C23248}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Kinnara.Toolkit.Shared", "Kinnara.Toolkit.Shared\Kinnara.Toolkit.Shared.shproj", "{FA46C21F-A323-4C23-871F-BC8212C23248}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinnara.Toolkit.WPA81", "Kinnara.Toolkit.WPA81\Kinnara.Toolkit.WPA81.csproj", "{F6303C50-A8C3-4681-B97A-8C0D34C064B2}"
 EndProject
@@ -16,8 +16,8 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		KinnaraToolkitSample\KinnaraToolkitSample.Shared\KinnaraToolkitSample.Shared.projitems*{64f55086-7ee2-4c68-aa0b-851103c6f611}*SharedItemsImports = 4
-		Kinnara.Toolkit\Kinnara.Toolkit.Shared\Kinnara.Toolkit.Shared.projitems*{f6303c50-a8c3-4681-b97a-8c0d34c064b2}*SharedItemsImports = 4
-		Kinnara.Toolkit\Kinnara.Toolkit.Shared\Kinnara.Toolkit.Shared.projitems*{fa46c21f-a323-4c23-871f-bc8212c23248}*SharedItemsImports = 13
+		Kinnara.Toolkit.Shared\Kinnara.Toolkit.Shared.projitems*{f6303c50-a8c3-4681-b97a-8c0d34c064b2}*SharedItemsImports = 4
+		Kinnara.Toolkit.Shared\Kinnara.Toolkit.Shared.projitems*{fa46c21f-a323-4c23-871f-bc8212c23248}*SharedItemsImports = 13
 		KinnaraToolkitSample\KinnaraToolkitSample.Shared\KinnaraToolkitSample.Shared.projitems*{63fb3a2c-dc1e-4f52-aa83-c6703813d0f2}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
