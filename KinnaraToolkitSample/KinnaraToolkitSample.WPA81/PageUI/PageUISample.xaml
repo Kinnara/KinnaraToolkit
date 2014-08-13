@@ -1,0 +1,25 @@
+﻿<k:BasePage
+    x:Class="KinnaraToolkitSample.PageUI.PageUISample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:k="using:Kinnara.Xaml.Controls"
+    xmlns:local="using:KinnaraToolkitSample.PageUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Style="{StaticResource ContinuumPageStyle}">
+
+    <k:PageUI Title="{StaticResource AppNameUpper}"
+              Header="page ui"
+              HeaderContinuumEnabled="True"
+              Style="{StaticResource PageUIWithListStyle}"
+              LandscapeTitlePanelHost="{Binding ElementName=LandscapeTitlePanelHost}">
+        <ListView x:Name="SamplesList"
+                  Style="{StaticResource SamplesListStyle}"
+                  ItemClick="SamplesList_ItemClick">
+            <ListView.Header>
+                <Border x:Name="LandscapeTitlePanelHost"/>
+            </ListView.Header>
+        </ListView>
+    </k:PageUI>
+</k:BasePage>

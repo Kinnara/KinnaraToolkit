@@ -1,0 +1,406 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:k="using:Kinnara.Xaml.Controls"
+    xmlns:local="using:KinnaraToolkitSample">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <SolidColorBrush x:Key="PhoneTextHighBrush" Color="{ThemeResource PhoneTextHighColor}"/>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="PhoneTextHighBrush" Color="{ThemeResource PhoneTextHighColor}"/>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrastBlack">
+            <SolidColorBrush x:Key="PhoneTextHighBrush" Color="{ThemeResource PhoneTextHighColor}"/>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrastWhite">
+            <SolidColorBrush x:Key="PhoneTextHighBrush" Color="{ThemeResource PhoneTextHighColor}"/>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <!-- Region Overrides -->
+    <x:Double x:Key="PivotHeaderItemFontSize">57.5</x:Double>
+    <x:Int32 x:Key="PivotHeaderItemCharacterSpacing">0</x:Int32>
+    <!-- EndRegion -->
+    
+    <!-- Region Text Styles -->
+    <x:Double x:Key="ListGroupHeaderFontSize">23.73</x:Double>
+    <x:Double x:Key="FontSmallLeading">12.8</x:Double>
+    <x:Double x:Key="FontMediumLooseLeading">22.4</x:Double>
+    <x:Double x:Key="FontMediumCompactLeading">17.5</x:Double>
+    <x:Double x:Key="FontLargeLooseLeading">24</x:Double>
+    <x:Double x:Key="FontLargeCompactLeading">21.5</x:Double>
+    <x:Double x:Key="FontExtraLargeLeading">26.67</x:Double>
+    <x:Double x:Key="FontExtraLargePlusLeading">32</x:Double>
+    <x:Double x:Key="FontXXLargeLeading">38.4</x:Double>
+
+    <Style x:Key="LabelBase" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilyNormal}"/>
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleMediumFontSize}"/>
+        <Setter Property="TextTrimming" Value="Clip"/>
+        <Setter Property="TextWrapping" Value="NoWrap"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontMediumCompactLeading}"/>
+        <Setter Property="LineStackingStrategy" Value="BaselineToBaseline"/>
+        <Setter Property="TextLineBounds" Value="Tight"/>
+        <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings"/>
+    </Style>
+
+    <Style x:Key="SmallBase" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleSmallFontSize}"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontSmallLeading}"/>
+    </Style>
+    <Style x:Key="SmallHigh" TargetType="TextBlock" BasedOn="{StaticResource SmallBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="SmallMid" TargetType="TextBlock" BasedOn="{StaticResource SmallBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="SmallLow" TargetType="TextBlock" BasedOn="{StaticResource SmallBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="SmallAccent" TargetType="TextBlock" BasedOn="{StaticResource SmallBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="MediumBase" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="LineHeight" Value="{ThemeResource FontMediumCompactLeading}"/>
+    </Style>
+    <Style x:Key="MediumHigh" TargetType="TextBlock" BasedOn="{StaticResource MediumBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="MediumMid" TargetType="TextBlock" BasedOn="{StaticResource MediumBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="MediumLow" TargetType="TextBlock" BasedOn="{StaticResource MediumBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="MediumAccent" TargetType="TextBlock" BasedOn="{StaticResource MediumBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="MediumLooseBase" TargetType="TextBlock" BasedOn="{StaticResource MediumBase}">
+        <Setter Property="LineHeight" Value="{ThemeResource FontMediumLooseLeading}"/>
+    </Style>
+    <Style x:Key="MediumHighLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="MediumMidLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="MediumLowLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="MediumAccentLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="MediumStrongBase" TargetType="TextBlock" BasedOn="{StaticResource MediumBase}">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style x:Key="MediumStrongHigh" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="MediumStrongMid" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="MediumStrongLow" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="MediumStrongAccent" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="MediumStrongLooseBase" TargetType="TextBlock" BasedOn="{StaticResource MediumLooseBase}">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style x:Key="MediumStrongHighLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="MediumStrongMidLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="MediumStrongLowLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="MediumStrongAccentLoose" TargetType="TextBlock" BasedOn="{StaticResource MediumStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="LargeBase" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleLargeFontSize}"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontLargeCompactLeading}"/>
+    </Style>
+    <Style x:Key="LargeHigh" TargetType="TextBlock" BasedOn="{StaticResource LargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="LargeMid" TargetType="TextBlock" BasedOn="{StaticResource LargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="LargeLow" TargetType="TextBlock" BasedOn="{StaticResource LargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="LargeAccent" TargetType="TextBlock" BasedOn="{StaticResource LargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="LargeLooseBase" TargetType="TextBlock" BasedOn="{StaticResource LargeBase}">
+        <Setter Property="LineHeight" Value="{ThemeResource FontLargeLooseLeading}"/>
+    </Style>
+    <Style x:Key="LargeHighLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="LargeMidLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="LargeLowLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="LargeAccentLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="LargeStrongBase" TargetType="TextBlock" BasedOn="{StaticResource LargeBase}">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style x:Key="LargeStrongHigh" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="LargeStrongMid" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="LargeStrongLow" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="LargeStrongAccent" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="LargeStrongLooseBase" TargetType="TextBlock" BasedOn="{StaticResource LargeLooseBase}">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style x:Key="LargeStrongHighLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="LargeStrongMidLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="LargeStrongLowLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="LargeStrongAccentLoose" TargetType="TextBlock" BasedOn="{StaticResource LargeStrongLooseBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="ExtraLargeBase" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilySemiLight}"/>
+        <Setter Property="FontWeight" Value="SemiLight"/>
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleExtraLargeFontSize}"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontExtraLargeLeading}"/>
+    </Style>
+    <Style x:Key="ExtraLargeHigh" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="ExtraLargeMid" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="ExtraLargeLow" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="ExtraLargeAccent" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="ExtraLargePlusBase" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilySemiLight}"/>
+        <Setter Property="FontWeight" Value="SemiLight"/>
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleExtraLargePlusFontSize}"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontExtraLargePlusLeading}"/>
+    </Style>
+    <Style x:Key="ExtraLargePlusHigh" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargePlusBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="ExtraLargePlusMid" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargePlusBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="ExtraLargePlusLow" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargePlusBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="ExtraLargePlusAccent" TargetType="TextBlock" BasedOn="{StaticResource ExtraLargePlusBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="XXLargeBase" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilySemiLight}"/>
+        <Setter Property="FontWeight" Value="SemiLight"/>
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleExtraExtraLargeFontSize}"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontXXLargeLeading}"/>
+    </Style>
+    <Style x:Key="XXLargeHigh" TargetType="TextBlock" BasedOn="{StaticResource XXLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}"/>
+    </Style>
+    <Style x:Key="XXLargeMid" TargetType="TextBlock" BasedOn="{StaticResource XXLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+    <Style x:Key="XXLargeLow" TargetType="TextBlock" BasedOn="{StaticResource XXLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneLowBrush}"/>
+    </Style>
+    <Style x:Key="XXLargeAccent" TargetType="TextBlock" BasedOn="{StaticResource XXLargeBase}">
+        <Setter Property="Foreground" Value="{ThemeResource PhoneAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="ListGroupHeaderLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilySemiLight}"/>
+        <Setter Property="FontSize" Value="{ThemeResource ListGroupHeaderFontSize}"/>
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+    </Style>
+
+    <Style x:Key="EmptyListStaticLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource LabelBase}">
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilySemiLight}"/>
+        <Setter Property="FontWeight" Value="SemiLight"/>
+        <Setter Property="FontSize" Value="{ThemeResource TextStyleExtraLargePlusFontSize}"/>
+        <Setter Property="Foreground" Value="{ThemeResource PhoneMidBrush}"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="LineHeight" Value="{ThemeResource FontExtraLargePlusLeading}"/>
+    </Style>
+    <!-- EndRegion -->
+
+    <!-- Region List Styles -->
+    <DataTemplate x:Key="ListFooterTemplate">
+        <Rectangle Height="76"/>
+    </DataTemplate>
+
+    <ControlTemplate x:Key="SimpleListViewBaseItemControlTemplate" TargetType="SelectorItem">
+        <Border x:Name="TiltContainer" Background="Transparent">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <PointerDownThemeAnimation Storyboard.TargetName="TiltContainer" />
+                        </Storyboard>
+                    </VisualState>
+                    <VisualStateGroup.Transitions>
+                        <VisualTransition From="Pressed" To="Normal">
+                            <Storyboard>
+                                <PointerUpThemeAnimation Storyboard.TargetName="TiltContainer" />
+                            </Storyboard>
+                        </VisualTransition>
+                    </VisualStateGroup.Transitions>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <ContentPresenter ContentTransitions="{TemplateBinding ContentTransitions}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch" />
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="ListView" TargetType="ListView">
+        <Setter Property="FooterTemplate" Value="{StaticResource ListFooterTemplate}"/>
+    </Style>
+
+    <Style x:Key="ListViewItem" TargetType="ListViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+    <Style TargetType="ListViewItem" BasedOn="{StaticResource ListViewItem}"/>
+
+    <Style x:Key="SimpleListViewItemStyle" TargetType="ListViewItem" BasedOn="{StaticResource ListViewItem}">
+        <Setter Property="Template" Value="{StaticResource SimpleListViewBaseItemControlTemplate}"/>
+    </Style>
+
+    <Style x:Key="SimpleListViewStyle" TargetType="ListView" BasedOn="{StaticResource ListView}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource SimpleListViewItemStyle}"/>
+        <Setter Property="IsItemClickEnabled" Value="True"/>
+    </Style>
+
+    <Style x:Key="GridView" TargetType="GridView">
+        <Setter Property="FooterTemplate" Value="{StaticResource ListFooterTemplate}"/>
+    </Style>
+
+    <Style x:Key="GridViewItem" TargetType="GridViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+    <Style TargetType="GridViewItem" BasedOn="{StaticResource GridViewItem}"/>
+
+    <Style x:Key="SimpleGridViewItemStyle" TargetType="GridViewItem" BasedOn="{StaticResource GridViewItem}">
+        <Setter Property="Template" Value="{StaticResource SimpleListViewBaseItemControlTemplate}"/>
+    </Style>
+
+    <Style x:Key="SimpleGridViewStyle" TargetType="GridView" BasedOn="{StaticResource GridView}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource SimpleGridViewItemStyle}"/>
+        <Setter Property="IsItemClickEnabled" Value="True"/>
+    </Style>
+    <!-- EndRegion -->
+
+    <!-- Region Page Styles -->
+    <Style x:Key="BasePageStyle" TargetType="Page">
+    </Style>
+
+    <Style x:Key="CommonPageStyle" TargetType="Page" BasedOn="{StaticResource BasePageStyle}">
+        <Setter Property="Transitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <NavigationThemeTransition>
+                        <CommonNavigationTransitionInfo/>
+                    </NavigationThemeTransition>
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SlidePageStyle" TargetType="Page" BasedOn="{StaticResource BasePageStyle}">
+        <Setter Property="Transitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <NavigationThemeTransition>
+                        <SlideNavigationTransitionInfo/>
+                    </NavigationThemeTransition>
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ContinuumPageStyle" TargetType="Page" BasedOn="{StaticResource BasePageStyle}">
+        <Setter Property="Transitions">
+            <Setter.Value>
+                <TransitionCollection>
+                    <NavigationThemeTransition>
+                        <ContinuumNavigationTransitionInfo/>
+                    </NavigationThemeTransition>
+                </TransitionCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- EndRegion -->
+
+    <!-- Region PageUI Styles -->
+    <Style x:Key="PageUIWithListStyle" TargetType="k:PageUI">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
+    </Style>
+
+    <Style x:Key="SubtitledPageUIStyle" TargetType="k:PageUI">
+        <Setter Property="TitleVisibility" Value="Visible"/>
+        <Setter Property="SubtitleVisibility" Value="Visible"/>
+        <Setter Property="HeaderVisibility" Value="Collapsed"/>
+        <Setter Property="TitlePanelMargin" Value="19,0,0,19"/>
+    </Style>
+    <!-- EndRegion -->
+
+    <!-- Region App Styles -->
+    <DataTemplate x:Key="SampleItemTemplate">
+        <TextBlock Text="{Binding DisplayName}"
+                   Style="{StaticResource ExtraLargePlusHigh}"
+                   Margin="19,8,0,37"
+                   ContinuumNavigationTransitionInfo.IsExitElement="True"/>
+    </DataTemplate>
+    
+    <Style x:Key="SamplesListStyle" TargetType="ListView" BasedOn="{StaticResource SimpleListViewStyle}">
+        <Setter Property="ItemTemplate" Value="{StaticResource SampleItemTemplate}"/>
+    </Style>
+    <!-- EndRegion -->
+
+</ResourceDictionary>
