@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Kinnara.Toolkit</id>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <title>Kinnara Toolkit</title>
     <authors>Yimeng Wu</authors>
     <licenseUrl>https://github.com/Kinnara/KinnaraToolkit/blob/master/LICENSE</licenseUrl>
@@ -14,4 +14,9 @@
     <language>en-US</language>
     <tags>WindowsPhone WP WP81 WPA81 WP8.1 WinRT Toolkit Controls</tags>
   </metadata>
+  <files>
+    <file src="bin\$Configuration$\Kinnara.Toolkit.pri" target="lib\wpa81" />
+    <file src="bin\$Configuration$\Kinnara.Toolkit.xr.xml" target="lib\wpa81\Kinnara.Toolkit" />
+    <file src="bin\$Configuration$\**\*.xbf" target="lib\wpa81\Kinnara.Toolkit" />
+  </files>
 </package>
