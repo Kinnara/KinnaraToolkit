@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Kinnara.Toolkit")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A set of components for Windows Phone apps")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Yimeng Wu")]
 [assembly: AssemblyProduct("Kinnara.Toolkit")]
-[assembly: AssemblyCopyright("Copyright © Yimeng Wu 2014")]
+[assembly: AssemblyCopyright("© Yimeng Wu. All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

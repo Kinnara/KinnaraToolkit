@@ -13,6 +13,13 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "KinnaraToolkitSample.Shared
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinnaraToolkitSample.WPA81", "KinnaraToolkitSample\KinnaraToolkitSample.WPA81\KinnaraToolkitSample.WPA81.csproj", "{64F55086-7EE2-4C68-AA0B-851103C6F611}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{934F4571-2879-413A-9E39-12C497FAAD6B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		KinnaraToolkitSample\KinnaraToolkitSample.Shared\KinnaraToolkitSample.Shared.projitems*{64f55086-7ee2-4c68-aa0b-851103c6f611}*SharedItemsImports = 4
