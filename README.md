@@ -1,6 +1,8 @@
 # Kinnara Toolkit
 
-A set of components for Windows Phone apps.
+Provides a set of components to help create beautiful and consistent Windows Phone user interfaces and make common programming tasks easier.
+
+<a href="https://www.nuget.org/packages/Kinnara.Toolkit/" target="_blank">Download on NuGet</a>
 
 **PageUI**  
 Makes it super easy to create page layouts that match the built-in experience.
