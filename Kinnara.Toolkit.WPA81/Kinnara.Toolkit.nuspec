@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Kinnara.Toolkit</id>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <title>Kinnara Toolkit</title>
     <authors>Yimeng Wu</authors>
     <licenseUrl>https://github.com/Kinnara/KinnaraToolkit/blob/master/LICENSE</licenseUrl>
@@ -19,5 +19,6 @@
     <file src="bin\$Configuration$\Kinnara.Toolkit.pri" target="lib\wpa81" />
     <file src="bin\$Configuration$\Kinnara.Toolkit.xr.xml" target="lib\wpa81\Kinnara.Toolkit" />
     <file src="bin\$Configuration$\**\*.xbf" target="lib\wpa81\Kinnara.Toolkit" />
+    <file src="**\*.xaml" target="lib\wpa81\Kinnara.Toolkit" exclude="obj\**" />
   </files>
 </package>
