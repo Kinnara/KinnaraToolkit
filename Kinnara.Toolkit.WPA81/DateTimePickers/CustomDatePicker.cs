@@ -24,7 +24,7 @@ namespace Kinnara.Xaml.Controls
         private DatePickerFlyout _flyout;
 
         /// <summary>
-        /// Initializes a new instance of the DatePicker class.
+        /// Initializes a new instance of the CustomDatePicker class.
         /// </summary>
         public CustomDatePicker()
         {
@@ -54,7 +54,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the CalendarIdentifier dependency property.
+        /// Identifies the CalendarIdentifier dependency property.
         /// </summary>
         public static readonly DependencyProperty CalendarIdentifierProperty = DependencyProperty.Register(
             "CalendarIdentifier",
@@ -88,7 +88,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the Date dependency property.
+        /// Identifies the Date dependency property.
         /// </summary>
         public static readonly DependencyProperty DateProperty = DependencyProperty.Register(
             "Date",
@@ -133,7 +133,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the DayVisible dependency property.
+        /// Identifies the DayVisible dependency property.
         /// </summary>
         public static readonly DependencyProperty DayVisibleProperty = DependencyProperty.Register(
             "DayVisible",
@@ -229,7 +229,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the MaxYear dependency property.
+        /// Identifies the MaxYear dependency property.
         /// </summary>
         public static readonly DependencyProperty MaxYearProperty = DependencyProperty.Register(
             "MaxYear",
@@ -263,7 +263,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the MinYear dependency property.
+        /// Identifies the MinYear dependency property.
         /// </summary>
         public static readonly DependencyProperty MinYearProperty = DependencyProperty.Register(
             "MinYear",
@@ -297,7 +297,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the MonthVisible dependency property.
+        /// Identifies the MonthVisible dependency property.
         /// </summary>
         public static readonly DependencyProperty MonthVisibleProperty = DependencyProperty.Register(
             "MonthVisible",
@@ -331,7 +331,7 @@ namespace Kinnara.Xaml.Controls
         }
 
         /// <summary>
-        /// Gets the identifier for the YearVisible dependency property.
+        /// Identifies the YearVisible dependency property.
         /// </summary>
         public static readonly DependencyProperty YearVisibleProperty = DependencyProperty.Register(
             "YearVisible",
