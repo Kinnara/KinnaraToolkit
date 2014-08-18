@@ -18,6 +18,7 @@
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
+    <!-- Page UI -->
     <Thickness x:Key="PageUIPortraitThemePadding">0</Thickness>
     <Thickness x:Key="PageUILandscapeThemePadding">0,6,0,0</Thickness>
     <Thickness x:Key="PageUITitlePanelThemeMargin">19,0,0,37</Thickness>
@@ -25,6 +26,52 @@
     <Thickness x:Key="PageUISubtitleThemeMargin">0,8,0,0</Thickness>
     <Thickness x:Key="PageUIHeaderThemeMargin">0,19,0,0</Thickness>
     <Thickness x:Key="PageUIContentThemePadding">19,8,19,76</Thickness>
+    <!-- Date/Time Picker -->
+    <Thickness x:Key="DateTimePickerThemePadding">6.5,0,0,3</Thickness>
+
+    <Style TargetType="controls:CustomDatePicker">
+        <Setter Property="BorderBrush" Value="{ThemeResource DatePickerForegroundThemeBrush}" />
+        <Setter Property="BorderThickness" Value="{ThemeResource PhoneBorderThickness}" />
+        <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilyNormal}" />
+        <Setter Property="FontSize" Value="{ThemeResource ContentControlFontSize}" />
+        <Setter Property="Foreground" Value="{ThemeResource PhoneTextHighBrush}" />
+        <Setter Property="Padding" Value="{StaticResource DateTimePickerThemePadding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CustomDatePicker">
+                    <StackPanel>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HeaderContentPresenter" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ComboBoxDisabledForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter x:Name="HeaderContentPresenter" Style="{StaticResource HeaderContentPresenterStyle}"
+                                          Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          TextLineBounds="Tight" OpticalMarginAlignment="TrimSideBearings" />
+                        <Button x:Name="FlyoutButton"
+                                Foreground="{TemplateBinding Foreground}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                FontSize="{TemplateBinding FontSize}"
+                                Padding="{TemplateBinding Padding}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style TargetType="controls:PageUI">
         <Setter Property="Background" Value="Transparent"/>

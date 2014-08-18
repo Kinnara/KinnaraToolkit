@@ -1,4 +1,5 @@
 ﻿using KinnaraToolkitSample.Data;
+using KinnaraToolkitSample.DateTimePickers;
 using KinnaraToolkitSample.PageUI;
 using Windows.UI.Xaml.Controls;
 
@@ -13,6 +14,7 @@ namespace KinnaraToolkitSample
             SamplesList.ItemsSource = new[]
             {
                 new SampleItem("Page UI", typeof(PageUISample)),
+                new SampleItem("Custom Date Picker", typeof(DatePickerSample)),
             };
         }
 
