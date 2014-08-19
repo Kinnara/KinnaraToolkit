@@ -1,5 +1,5 @@
 ﻿using System;
-using Windows.Globalization.DateTimeFormatting;
+using System.Diagnostics.CodeAnalysis;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -9,19 +9,9 @@ namespace Kinnara.Xaml.Controls
     /// <summary>
     /// Represents a control that allows a user to pick a date value.
     /// </summary>
-    [TemplatePart(Name = ElementHeaderContentPresenterName, Type = typeof(FrameworkElement))]
-    [TemplatePart(Name = ElementFlyoutButtonName, Type = typeof(ButtonBase))]
-    [TemplateVisualState(GroupName = VisualStates.GroupCommon, Name = VisualStates.StateNormal)]
-    [TemplateVisualState(GroupName = VisualStates.GroupCommon, Name = VisualStates.StateDisabled)]
-    public class CustomDatePicker : Control
+    public class CustomDatePicker : CustomDateTimePickerBase
     {
-        private const string ElementHeaderContentPresenterName = "HeaderContentPresenter";
-        private const string ElementFlyoutButtonName = "FlyoutButton";
-
         private static DatePicker ReferenceDatePicker = new DatePicker();
-
-        private DateTimeFormatter _dateFormatter;
-        private DatePickerFlyout _flyout;
 
         /// <summary>
         /// Initializes a new instance of the CustomDatePicker class.
@@ -30,12 +20,7 @@ namespace Kinnara.Xaml.Controls
         {
             DefaultStyleKey = typeof(CustomDatePicker);
 
-            ResetDateFormatter();
-            PlaceholderText = ControlResources.DatePickerTitleText.ToLower();
-
-            Date = DateTimeOffset.Now;
-
-            IsEnabledChanged += OnIsEnabledChanged;
+            Date = GetCurrentDate();
         }
 
         #region CalendarIdentifier
@@ -64,9 +49,9 @@ namespace Kinnara.Xaml.Controls
 
         private void OnCalendarIdentifierChanged(DependencyPropertyChangedEventArgs e)
         {
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.CalendarIdentifier = CalendarIdentifier;
+                PickerFlyout.CalendarIdentifier = CalendarIdentifier;
             }
         }
 
@@ -101,12 +86,12 @@ namespace Kinnara.Xaml.Controls
             var oldDate = (DateTimeOffset?)e.OldValue;
             var newDate = (DateTimeOffset?)e.NewValue;
 
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.Date = Date.GetValueOrDefault(DateTimeOffset.Now);
+                PickerFlyout.Date = Date.GetValueOrDefault(GetCurrentDate());
             }
 
-            UpdateFlyoutButtonContent();
+            InvalidateValue();
 
             var handler = DateChanged;
             if (handler != null)
@@ -143,72 +128,10 @@ namespace Kinnara.Xaml.Controls
 
         private void OnDayVisibleChanged(DependencyPropertyChangedEventArgs e)
         {
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.DayVisible = DayVisible;
+                PickerFlyout.DayVisible = DayVisible;
             }
-        }
-
-        #endregion
-
-        #region Header
-
-        /// <summary>
-        /// Gets or sets the content for the control's header.
-        /// </summary>
-        /// 
-        /// <returns>
-        /// The content of the control's header. The default is null.
-        /// </returns>
-        public object Header
-        {
-            get { return (object)GetValue(HeaderProperty); }
-            set { SetValue(HeaderProperty, value); }
-        }
-
-        /// <summary>
-        /// Identifies the Header dependency property.
-        /// </summary>
-        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-            "Header",
-            typeof(object),
-            typeof(CustomDatePicker),
-            new PropertyMetadata(ReferenceDatePicker.Header, (d, e) => ((CustomDatePicker)d).OnHeaderChanged(e)));
-
-        private void OnHeaderChanged(DependencyPropertyChangedEventArgs e)
-        {
-            UpdateHeaderContentPresenterVisibility();
-        }
-
-        #endregion
-
-        #region HeaderTemplate
-
-        /// <summary>
-        /// Gets or sets the DataTemplate used to display the content of the control's header.
-        /// </summary>
-        /// 
-        /// <returns>
-        /// The template that specifies the visualization of the header object. The default is null.
-        /// </returns>
-        public DataTemplate HeaderTemplate
-        {
-            get { return (DataTemplate)GetValue(HeaderTemplateProperty); }
-            set { SetValue(HeaderTemplateProperty, value); }
-        }
-
-        /// <summary>
-        /// Identifies the HeaderTemplate dependency property.
-        /// </summary>
-        public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
-            "HeaderTemplate",
-            typeof(DataTemplate),
-            typeof(CustomDatePicker),
-            new PropertyMetadata(ReferenceDatePicker.HeaderTemplate, (d, e) => ((CustomDatePicker)d).OnHeaderTemplateChanged(e)));
-
-        private void OnHeaderTemplateChanged(DependencyPropertyChangedEventArgs e)
-        {
-            UpdateHeaderContentPresenterVisibility();
         }
 
         #endregion
@@ -239,9 +162,9 @@ namespace Kinnara.Xaml.Controls
 
         private void OnMaxYearChanged(DependencyPropertyChangedEventArgs e)
         {
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.MaxYear = MaxYear;
+                PickerFlyout.MaxYear = MaxYear;
             }
         }
 
@@ -273,9 +196,9 @@ namespace Kinnara.Xaml.Controls
 
         private void OnMinYearChanged(DependencyPropertyChangedEventArgs e)
         {
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.MinYear = MinYear;
+                PickerFlyout.MinYear = MinYear;
             }
         }
 
@@ -307,9 +230,9 @@ namespace Kinnara.Xaml.Controls
 
         private void OnMonthVisibleChanged(DependencyPropertyChangedEventArgs e)
         {
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.MonthVisible = MonthVisible;
+                PickerFlyout.MonthVisible = MonthVisible;
             }
         }
 
@@ -341,9 +264,9 @@ namespace Kinnara.Xaml.Controls
 
         private void OnYearVisibleChanged(DependencyPropertyChangedEventArgs e)
         {
-            if (_flyout != null)
+            if (PickerFlyout != null)
             {
-                _flyout.YearVisible = YearVisible;
+                PickerFlyout.YearVisible = YearVisible;
             }
         }
 
@@ -375,120 +298,67 @@ namespace Kinnara.Xaml.Controls
 
         private void OnDateFormatChanged(DependencyPropertyChangedEventArgs e)
         {
-            ResetDateFormatter();
-            UpdateFlyoutButtonContent();
+            InvalidateFormat();
         }
 
         #endregion
 
-        #region PlaceholderText
-
         /// <summary>
-        /// Gets or sets the text that is displayed in the control until the value is changed by a user action or some other operation.
+        /// Gets the date and time to be formatted.
         /// </summary>
-        /// 
-        /// <returns>
-        /// The text that is displayed in the control when no value is selected. The default is an empty string ("").
-        /// </returns>
-        public string PlaceholderText
+        protected override DateTimeOffset? Value
         {
-            get { return (string)GetValue(PlaceholderTextProperty); }
-            set { SetValue(PlaceholderTextProperty, value); }
+            get { return Date; }
         }
 
         /// <summary>
-        /// Identifies the PlaceholderText dependency property.
+        /// Gets the display format for the date.
         /// </summary>
-        public static readonly DependencyProperty PlaceholderTextProperty = DependencyProperty.Register(
-            "PlaceholderText",
-            typeof(string),
-            typeof(CustomDatePicker),
-            new PropertyMetadata(string.Empty, (d, e) => ((CustomDatePicker)d).OnPlaceholderTextChanged(e)));
-
-        private void OnPlaceholderTextChanged(DependencyPropertyChangedEventArgs e)
+        protected override string Format
         {
-            UpdateFlyoutButtonContent();
-        }
-
-        #endregion
-
-        #region FlyoutTitle
-
-        /// <summary>
-        /// Gets or sets the title for a picker flyout when it appears.
-        /// </summary>
-        /// 
-        /// <returns>
-        /// The title for a picker flyout when it appears.
-        /// </returns>
-        public string FlyoutTitle
-        {
-            get { return (string)GetValue(FlyoutTitleProperty); }
-            set { SetValue(FlyoutTitleProperty, value); }
+            get { return DateFormat; }
         }
 
         /// <summary>
-        /// Identifies the FlyoutTitle dependency property.
+        /// Gets the default flyout title.
         /// </summary>
-        public static readonly DependencyProperty FlyoutTitleProperty = DependencyProperty.Register(
-            "FlyoutTitle",
-            typeof(string),
-            typeof(CustomDatePicker),
-            new PropertyMetadata(string.Empty, (d, e) => ((CustomDatePicker)d).OnFlyoutTitleChanged(e)));
-
-        private void OnFlyoutTitleChanged(DependencyPropertyChangedEventArgs e)
+        protected override string DefaultFlyoutTitle
         {
-            if (_flyout != null)
-            {
-                PickerFlyoutBase.SetTitle(_flyout, FlyoutTitle);
-            }
+            get { return ControlResources.DatePickerTitleText; }
         }
 
-        #endregion
-
-        private FrameworkElement ElementHeaderContentPresenter { get; set; }
-
-        private ButtonBase ElementFlyoutButton { get; set; }
+        private DatePickerFlyout PickerFlyout
+        {
+            get { return Flyout as DatePickerFlyout; }
+        }
 
         /// <summary>
         /// Occurs when the date value is changed.
         /// </summary>
+        [SuppressMessage("Microsoft.Design", "CA1009:DeclareEventHandlersCorrectly")]
         public event EventHandler<CustomDatePickerValueChangedEventArgs> DateChanged;
 
         /// <summary>
-        /// Builds the visual tree for the control when a new template is applied.
+        /// Initializes a picker flyout that allows a user to pick a date value.
         /// </summary>
-        protected override void OnApplyTemplate()
+        /// 
+        /// <returns>
+        /// A picker flyout that allows a user to pick a date value.
+        /// </returns>
+        protected override PickerFlyoutBase CreateFlyout()
         {
-            base.OnApplyTemplate();
-
-            if (ElementFlyoutButton != null)
+            var flyout = new DatePickerFlyout
             {
-                ElementFlyoutButton.Click -= OnFlyoutButtonClick;
-            }
-
-            ElementHeaderContentPresenter = GetTemplateChild(ElementHeaderContentPresenterName) as FrameworkElement;
-            ElementFlyoutButton = GetTemplateChild(ElementFlyoutButtonName) as ButtonBase;
-
-            if (ElementFlyoutButton != null)
-            {
-                ElementFlyoutButton.Click += OnFlyoutButtonClick;
-            }
-
-            UpdateVisualState(false);
-            UpdateHeaderContentPresenterVisibility();
-            UpdateFlyoutButtonContent();
-        }
-
-        private void OnIsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            UpdateVisualState(true);
-        }
-
-        private void OnFlyoutButtonClick(object sender, RoutedEventArgs e)
-        {
-            EnsureFlyout();
-            _flyout.ShowAt(this);
+                CalendarIdentifier = CalendarIdentifier,
+                Date = Date.GetValueOrDefault(GetCurrentDate()),
+                DayVisible = DayVisible,
+                MaxYear = MaxYear,
+                MinYear = MinYear,
+                MonthVisible = MonthVisible,
+                YearVisible = YearVisible
+            };
+            flyout.DatePicked += OnFlyoutDatePicked;
+            return flyout;
         }
 
         private void OnFlyoutDatePicked(DatePickerFlyout sender, DatePickedEventArgs args)
@@ -496,56 +366,9 @@ namespace Kinnara.Xaml.Controls
             Date = args.NewDate;
         }
 
-        private void ResetDateFormatter()
+        private static DateTimeOffset GetCurrentDate()
         {
-            _dateFormatter = new DateTimeFormatter(DateFormat);
-        }
-
-        private void EnsureFlyout()
-        {
-            if (_flyout == null)
-            {
-                _flyout = new DatePickerFlyout
-                {
-                    CalendarIdentifier = CalendarIdentifier,
-                    Date = Date.GetValueOrDefault(DateTimeOffset.Now),
-                    DayVisible = DayVisible,
-                    MaxYear = MaxYear,
-                    MinYear = MinYear,
-                    MonthVisible = MonthVisible,
-                    YearVisible = YearVisible
-                };
-                PickerFlyoutBase.SetTitle(_flyout, !string.IsNullOrEmpty(FlyoutTitle) ? FlyoutTitle : ControlResources.DatePickerTitleText);
-                _flyout.DatePicked += OnFlyoutDatePicked;
-            }
-        }
-
-        private void UpdateVisualState(bool useTransitions)
-        {
-            VisualStateManager.GoToState(this, IsEnabled ? VisualStates.StateNormal : VisualStates.StateDisabled, useTransitions);
-        }
-
-        private void UpdateHeaderContentPresenterVisibility()
-        {
-            if (ElementHeaderContentPresenter != null)
-            {
-                ElementHeaderContentPresenter.Visibility = Header == null && HeaderTemplate == null ? Visibility.Collapsed : Visibility.Visible;
-            }
-        }
-
-        private void UpdateFlyoutButtonContent()
-        {
-            if (ElementFlyoutButton != null)
-            {
-                if (Date.HasValue)
-                {
-                    ElementFlyoutButton.Content = _dateFormatter.Format(Date.Value);
-                }
-                else
-                {
-                    ElementFlyoutButton.Content = PlaceholderText;
-                }
-            }
+            return DateTimeOffset.Now;
         }
     }
 }

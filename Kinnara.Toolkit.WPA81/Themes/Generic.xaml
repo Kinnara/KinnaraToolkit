@@ -29,7 +29,7 @@
     <!-- Date/Time Picker -->
     <Thickness x:Key="DateTimePickerThemePadding">6.5,0,0,3</Thickness>
 
-    <Style TargetType="controls:CustomDatePicker">
+    <Style x:Key="CustomDateTimePickerBase" TargetType="controls:CustomDateTimePickerBase">
         <Setter Property="BorderBrush" Value="{ThemeResource DatePickerForegroundThemeBrush}" />
         <Setter Property="BorderThickness" Value="{ThemeResource PhoneBorderThickness}" />
         <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilyNormal}" />
@@ -39,7 +39,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:CustomDatePicker">
+                <ControlTemplate TargetType="controls:CustomDateTimePickerBase">
                     <StackPanel>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -72,6 +72,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="controls:CustomDatePicker" BasedOn="{StaticResource CustomDateTimePickerBase}"/>
+
+    <Style TargetType="controls:CustomTimePicker" BasedOn="{StaticResource CustomDateTimePickerBase}"/>
 
     <Style TargetType="controls:PageUI">
         <Setter Property="Background" Value="Transparent"/>

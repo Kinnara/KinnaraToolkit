@@ -12,6 +12,11 @@ namespace Kinnara.Xaml.Controls
             get { return GetString(); }
         }
 
+        public static string TimePickerTitleText
+        {
+            get { return GetString(); }
+        }
+
         private static string GetString([CallerMemberName]string resource = null)
         {
             return _resourceLoader.GetString(resource);

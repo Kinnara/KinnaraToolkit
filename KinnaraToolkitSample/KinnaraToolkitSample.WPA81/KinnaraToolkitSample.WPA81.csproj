@@ -80,6 +80,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Data\SampleItems.cs" />
+    <Compile Include="DateTimePickers\TimePickerSample.xaml.cs">
+      <DependentUpon>TimePickerSample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DateTimePickers\DatePickerSample.xaml.cs">
       <DependentUpon>DatePickerSample.xaml</DependentUpon>
     </Compile>
@@ -119,6 +123,10 @@
   </ItemGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Page Include="DateTimePickers\TimePickerSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DateTimePickers\DatePickerSample.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

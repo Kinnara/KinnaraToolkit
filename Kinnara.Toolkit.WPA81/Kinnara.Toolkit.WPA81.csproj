@@ -92,7 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ControlResources.cs" />
+    <Compile Include="DateTimePickers\CustomDateTimePickerBase.cs" />
+    <Compile Include="DateTimePickers\CustomTimePicker.cs" />
     <Compile Include="DateTimePickers\CustomDatePicker.cs" />
+    <Compile Include="DateTimePickers\CustomTimePickerValueChangedEventArgs.cs" />
     <Compile Include="DateTimePickers\CustomDatePickerValueChangedEventArgs.cs" />
     <Compile Include="PageUI\PageUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

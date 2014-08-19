@@ -1,0 +1,34 @@
+﻿<k:BasePage
+    x:Class="KinnaraToolkitSample.DateTimePickers.TimePickerSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:k="using:Kinnara.Xaml.Controls"
+    xmlns:local="using:KinnaraToolkitSample.PageUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Style="{StaticResource ContinuumPageStyle}">
+
+    <UserControl.Resources>
+        <Style TargetType="k:CustomTimePicker">
+            <Setter Property="Margin" Value="0,0,0,16"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <k:PageUI Title="{StaticResource AppNameUpper}"
+              Header="time picker"
+              HeaderContinuumEnabled="True">
+        <StackPanel>
+            <k:CustomTimePicker Header="Normal state"/>
+            <k:CustomTimePicker Header="Custom flyout title"
+                                FlyoutTitle="SELECT START TIME"/>
+            <k:CustomTimePicker Header="Custom format"
+                                MinuteIncrement="0"
+                                TimeFormat="hour"/>
+            <k:CustomTimePicker Header="Placeholder text"
+                                Time="{x:Null}"/>
+            <k:CustomTimePicker Header="Disabled state"
+                                IsEnabled="False"/>
+        </StackPanel>
+    </k:PageUI>
+</k:BasePage>

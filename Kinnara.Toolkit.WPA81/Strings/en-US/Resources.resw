@@ -121,4 +121,8 @@
     <value>CHOOSE DATE</value>
     <comment>Default title for DatePicker.</comment>
   </data>
+  <data name="TimePickerTitleText" xml:space="preserve">
+    <value>CHOOSE TIME</value>
+    <comment>Default title for TimePicker.</comment>
+  </data>
 </root>
