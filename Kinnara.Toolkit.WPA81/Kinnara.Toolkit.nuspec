@@ -9,7 +9,14 @@
     <projectUrl>https://github.com/Kinnara/KinnaraToolkit</projectUrl>
     <iconUrl>https://raw.github.com/Kinnara/Media/master/KinnaraToolkit/NuGetLogo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Provides a set of components to help create beautiful and consistent Windows Phone user interfaces and make common programming tasks easier.</description>
+    <description>
+      <![CDATA[
+Provides a set of components to help create beautiful and consistent Windows Phone user interfaces and make common programming tasks easier.
+
+Supported Framework
+• Windows Phone 8.1 [Windows Runtime apps only]
+      ]]>
+    </description>
     <releaseNotes>Please visit https://github.com/Kinnara/KinnaraToolkit/releases to view the release notes.</releaseNotes>
     <copyright>© Yimeng Wu. All rights reserved.</copyright>
     <language>en-US</language>
