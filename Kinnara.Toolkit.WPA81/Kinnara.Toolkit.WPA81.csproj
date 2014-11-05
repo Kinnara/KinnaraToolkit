@@ -92,6 +92,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ControlResources.cs" />
+    <Compile Include="ContextMenu\ContextMenuService.cs" />
+    <Compile Include="ContextMenu\HoldListener.cs" />
     <Compile Include="DateTimePickers\CustomDateTimePickerBase.cs" />
     <Compile Include="DateTimePickers\CustomTimePicker.cs" />
     <Compile Include="DateTimePickers\CustomDatePicker.cs" />

@@ -9,6 +9,8 @@
     <Import_RootNamespace>Kinnara.Toolkit</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SafeRaise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\VisualStates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ContextMenu\ContextMenuService.cs" />
   </ItemGroup>
 </Project>

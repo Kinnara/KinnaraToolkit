@@ -22,6 +22,144 @@
     <!-- Region Overrides -->
     <x:Double x:Key="PivotHeaderItemFontSize">57.5</x:Double>
     <x:Int32 x:Key="PivotHeaderItemCharacterSpacing">0</x:Int32>
+
+    <Thickness x:Key="MenuFlyoutLandscapeThemePadding">21,59.5,0,65</Thickness>
+    <Thickness x:Key="MenuFlyoutPortraitThemePadding">21,12.5,0,25</Thickness>
+
+    <Style x:Key="MenuFlyoutPresenter" TargetType="MenuFlyoutPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="MenuFlyoutPresenter">
+                    <Border x:Name="OuterBorder" FlowDirection="LeftToRight" BorderBrush="{TemplateBinding BorderBrush}">
+                        <Border.Resources>
+                            <ExponentialEase x:Key="Ease" EasingMode="EaseInOut" Exponent="3"/>
+                        </Border.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="PlacementStates">
+                                <VisualState x:Name="None" />
+                                <VisualState x:Name="TopPortrait">
+                                    <Storyboard>
+                                        <PointAnimation Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="RenderTransformOrigin" Duration="0:0:0" To="0,1" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,1.5" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutPortraitBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CenterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,1.5" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutPortraitBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,3,0,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ItemsPresenter" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource MenuFlyoutPortraitThemePadding}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="OuterScaleTransform" Storyboard.TargetProperty="ScaleX" Duration="0:0:0.30" From="0.0" To="1.0" EasingFunction="{StaticResource Ease}" />
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InnerScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0.0" />
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0.30" Value="0.0" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1.0" EasingFunction="{StaticResource Ease}" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="BottomPortrait">
+                                    <Storyboard>
+                                        <PointAnimation Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="RenderTransformOrigin" Duration="0:0:0" To="0,0" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,1.5,0,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutPortraitBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CenterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,1.5,0,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutPortraitBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,0,3" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ItemsPresenter" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource MenuFlyoutPortraitThemePadding}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="OuterScaleTransform" Storyboard.TargetProperty="ScaleX" Duration="0:0:0.30" From="0.0" To="1.0" EasingFunction="{StaticResource Ease}" />
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InnerScaleTransform" Storyboard.TargetProperty="ScaleY">
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0.0" />
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0.30" Value="0.0" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1.0" EasingFunction="{StaticResource Ease}" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="LeftLandscape">
+                                    <Storyboard>
+                                        <PointAnimation Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="RenderTransformOrigin" Duration="0:0:0" To="1,0" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,1.5,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutLeftLandscapeBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CenterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,1.5,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutLeftLandscapeBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="3,0,0,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ItemsPresenter" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource MenuFlyoutLandscapeThemePadding}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="OuterScaleTransform" Storyboard.TargetProperty="ScaleY" Duration="0:0:0.30" From="0.0" To="1.0" EasingFunction="{StaticResource Ease}" />
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InnerScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0.0" />
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0.30" Value="0.0" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1.0" EasingFunction="{StaticResource Ease}" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="RightLandscape">
+                                    <Storyboard>
+                                        <PointAnimation Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="RenderTransformOrigin" Duration="0:0:0" To="0,0" />
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="OuterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="1.5,0,0,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutRightLandscapeBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CenterBorder" Storyboard.TargetProperty="BorderThickness">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="1.5,0,0,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="{ThemeResource MenuFlyoutRightLandscapeBorderThemeThickness}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="InnerBorder" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0,0,3,0" />
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.50" Value="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ItemsPresenter" Storyboard.TargetProperty="Margin">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource MenuFlyoutLandscapeThemePadding}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="OuterScaleTransform" Storyboard.TargetProperty="ScaleY" Duration="0:0:0.30" From="0.0" To="1.0" EasingFunction="{StaticResource Ease}" />
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InnerScaleTransform" Storyboard.TargetProperty="ScaleX">
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0.0" />
+                                            <LinearDoubleKeyFrame KeyTime="0:0:0.30" Value="0.0" />
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.50" Value="1.0" EasingFunction="{StaticResource Ease}" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border.RenderTransform>
+                            <ScaleTransform x:Name="OuterScaleTransform" />
+                        </Border.RenderTransform>
+                        <Border x:Name="CenterBorder" FlowDirection="LeftToRight" BorderBrush="{TemplateBinding Background}">
+                            <StackPanel x:Name="InnerBorder" FlowDirection="{TemplateBinding FlowDirection}" Background="{TemplateBinding Background}">
+                                <StackPanel.RenderTransform>
+                                    <ScaleTransform x:Name="InnerScaleTransform" />
+                                </StackPanel.RenderTransform>
+                                <ItemsPresenter x:Name="ItemsPresenter" Margin="{TemplateBinding Padding}" FlowDirection="{TemplateBinding FlowDirection}" />
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="MenuFlyoutPresenter" BasedOn="{StaticResource MenuFlyoutPresenter}"/>
     <!-- EndRegion -->
     
     <!-- Region Text Styles -->

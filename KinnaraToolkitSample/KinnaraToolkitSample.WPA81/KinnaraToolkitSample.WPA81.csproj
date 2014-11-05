@@ -80,7 +80,13 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ContextMenu\ContextMenuSample.xaml.cs">
+      <DependentUpon>ContextMenuSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ContextMenuSampleItem.cs" />
+    <Compile Include="Data\ContextMenuSampleItems.cs" />
     <Compile Include="Data\SampleItems.cs" />
+    <Compile Include="Data\StringCollection.cs" />
     <Compile Include="DateTimePickers\TimePickerSample.xaml.cs">
       <DependentUpon>TimePickerSample.xaml</DependentUpon>
     </Compile>
@@ -123,6 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Page Include="ContextMenu\ContextMenuSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DateTimePickers\TimePickerSample.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
