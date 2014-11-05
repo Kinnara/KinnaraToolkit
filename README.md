@@ -2,6 +2,9 @@
 
 Provides a set of components to help create beautiful and consistent Windows Phone user interfaces and make common programming tasks easier.
 
+**Supported Framework**  
+Windows Phone 8.1 [Windows Runtime apps only]
+
 <a href="https://www.nuget.org/packages/Kinnara.Toolkit/" target="_blank">Download on NuGet</a>
 
 ### Page UI
