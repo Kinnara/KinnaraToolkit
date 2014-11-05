@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("KinnaraToolkitSample")]
-[assembly: AssemblyCopyright("Copyright © Yimeng Wu  2014")]
+[assembly: AssemblyCopyright("Copyright © Yimeng Wu 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

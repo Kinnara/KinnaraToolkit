@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kinnara.Xaml.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -71,6 +72,10 @@ namespace KinnaraToolkitSample
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+#if WINDOWS_PHONE_APP
+                SystemTray.Frame = rootFrame;
+#endif
             }
 
             if (rootFrame.Content == null)

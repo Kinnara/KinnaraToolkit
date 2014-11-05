@@ -101,6 +101,8 @@
     <Compile Include="DateTimePickers\CustomDatePickerValueChangedEventArgs.cs" />
     <Compile Include="PageUI\PageUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemTray\ProgressIndicator.cs" />
+    <Compile Include="SystemTray\SystemTray.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Kinnara.Toolkit.nuspec" />

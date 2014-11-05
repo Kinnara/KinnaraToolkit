@@ -13,6 +13,7 @@ namespace KinnaraToolkitSample.Data
             Add(new SampleItem("date picker", typeof(DatePickerSample)));
             Add(new SampleItem("time picker", typeof(TimePickerSample)));
             Add(new SampleItem("context menu", typeof(ContextMenuSample)));
+            Add(new SampleItem("system tray", typeof(SystemTraySample)));
         }
     }
 }
