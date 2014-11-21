@@ -10,6 +10,21 @@ Windows Phone 8.1 [Windows Runtime apps only]
 ### Context Menu Service
 Provides the system implementation for displaying a context menu.
 
+```XML
+<StackPanel x:Name="ContextMenuTarget"
+            Background="Transparent">
+    <k:ContextMenuService.ContextMenu>
+        <MenuFlyout>
+            <MenuFlyoutItem Text="reply all"/>
+            <MenuFlyoutItem Text="forward"/>
+            <MenuFlyoutItem Text="mark as unread"/>
+            <MenuFlyoutItem Text="flag for follow up"/>
+            <MenuFlyoutItem Text="move to"/>
+        </MenuFlyout>
+    </k:ContextMenuService.ContextMenu>
+</StackPanel>
+```
+
 ### Custom Date & Time Pickers
 Supports **null** value, custom flyout title, custom format, and placeholder text.
 
@@ -22,3 +37,13 @@ Makes it super easy to create page layouts that match the built-in experience.
 
 ### System Tray
 Provides methods and properties for interacting with the system tray on a page.
+
+```XML
+<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:k="using:Kinnara.Xaml.Controls"
+    k:SystemTray.BackgroundColor="{ThemeResource SystemColorControlAccentColor}"
+    k:SystemTray.ForegroundColor="{ThemeResource PhoneTextOverAccentColor}">
+</Page>
+```
