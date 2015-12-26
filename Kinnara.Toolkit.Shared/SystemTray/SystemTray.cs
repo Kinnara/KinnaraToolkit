@@ -317,6 +317,13 @@ namespace Kinnara.Xaml.Controls
 
         private static void UpdateStatusBar()
         {
+#if WINDOWS_UWP
+            if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                return;
+            }
+#endif
+
             Page activePage = TryGetActivePage();
             if (activePage == null)
             {
@@ -364,6 +371,13 @@ namespace Kinnara.Xaml.Controls
 
         internal static void UpdateStatusBarProgressIndicator()
         {
+#if WINDOWS_UWP
+            if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                return;
+            }
+#endif
+
             if (_statusBar == null)
             {
                 _statusBar = StatusBar.GetForCurrentView();

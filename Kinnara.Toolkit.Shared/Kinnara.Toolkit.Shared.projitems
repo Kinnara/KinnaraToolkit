@@ -12,5 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\SafeRaise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\VisualStates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContextMenu\ContextMenuService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SystemTray\ProgressIndicator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SystemTray\SystemTray.cs" />
   </ItemGroup>
 </Project>
